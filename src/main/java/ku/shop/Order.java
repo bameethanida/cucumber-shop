@@ -22,6 +22,8 @@ public class Order {
     }
 
     public void addItem(Product prod, int quantity) {
+        if (prod.getQuantity() <= quantity)
+            throw new IllegalArgumentException("This product is currently out of stock");
         items.add(new OrderItem(prod, quantity));
     }
 
